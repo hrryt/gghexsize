@@ -1,15 +1,102 @@
 #' Geom Hextile
+#' @param geom,stat geom,stat Override the default connection between `geom_hextile()` and
+#'   `stat_summary_hextile()`. For more information about overriding these connections,
+#'   see how the [stat][ggplot2::layer_stats] and [geom][ggplot2::layer_geoms] arguments work.
+#' @inheritParams ggplot2::geom_hex
+#' @param fun,fun2,fun3 function for summary.
+#' @param fun.args,fun2.args,fun3.args A list of extra arguments to pass to `fun`
+#' @inheritParams ggplot2::stat_summary_hex
+#' @section Aesthetics:
+#' \code{geom_hextile()} understands the following aesthetics. Required aesthetics are displayed in bold and defaults are displayed for optional aesthetics:
+#'   \tabular{rll}{
+#'     • \tab \strong{\code{\link[ggplot2:aes_position]{x}}} \tab   \cr\cr
+#'     • \tab \strong{\code{\link[ggplot2:aes_position]{y}}} \tab   \cr\cr
+#'     • \tab \code{\link[ggplot2:aes_colour_fill_alpha]{alpha}} \tab → \code{NA} \cr\cr
+#'     • \tab \code{\link[ggplot2:aes_colour_fill_alpha]{colour}} \tab → via \code{theme()} \cr\cr
+#'     • \tab \code{\link[ggplot2:aes_colour_fill_alpha]{fill}} \tab → via \code{theme()} \cr\cr
+#'     • \tab \code{\link[ggplot2:aes_group_order]{group}} \tab → inferred \cr\cr
+#'     • \tab \code{\link[ggplot2:aes_linetype_size_shape]{linetype}} \tab → via \code{theme()} \cr\cr
+#'     • \tab \code{\link[ggplot2:aes_linetype_size_shape]{linewidth}} \tab → via \code{theme()} \cr\cr
+#'     • \tab \code{\link[ggplot2:aes_linetype_size_shape]{size}} \tab → \code{1} \cr\cr
+#'   }
+#' Learn more about setting these aesthetics in \code{vignette("ggplot2-specs")}.
+#'
+#' \code{stat_summary_hextile()} understands the following aesthetics. Required aesthetics are displayed in bold and defaults are displayed for optional aesthetics:
+#' \tabular{rll}{
+#'   • \tab \strong{\code{\link[ggplot2:aes_position]{x}}} \tab   \cr\cr
+#'   • \tab \strong{\code{\link[ggplot2:aes_position]{y}}} \tab   \cr\cr
+#'   • \tab \code{z}, \code{z2}, \code{z3}: \tab value passed to each summary function   \cr\cr
+#'   • \tab \code{\link[ggplot2:aes_colour_fill_alpha]{fill}} \tab → \code{after_stat(value)} \cr\cr
+#'   • \tab \code{\link[ggplot2:aes_group_order]{group}} \tab → inferred \cr\cr
+#'   • \tab \code{\link[ggplot2:aes_linetype_size_shape]{size}} \tab → \code{after_stat(count)} \cr\cr
+#'   • \tab \code{weight} \tab → \code{1} \cr\cr
+#' }
+#' Learn more about setting these aesthetics in \code{vignette("ggplot2-specs")}.
+#'
+#' @section Computed variables:
+#' These are calculated by the 'stat' part of layers and can be accessed with [delayed evaluation][ggplot2::aes_eval].
+#' *  `after_stat(x)`, `after_stat(y)`\cr location.
+#' *  `after_stat(count)`\cr number of points in bin.
+#' *  `after_stat(density)`\cr density of points in bin, scaled to integrate to 1.
+#' *  `after_stat(ncount)`\cr count, scaled to maximum of 1.
+#' *  `after_stat(ndensity)`\cr density, scaled to maximum of 1.
+#' *  `after_stat(value)`\cr number of points in bin, or if `z` is supplied, value of summary statistic from `z`.
+#' *  `after_stat(value2)`\cr if `z2` is supplied, value of summary statistic from `z2`.
+#' *  `after_stat(value3)`\cr if `z3` is supplied, value of summary statistic from `z3`.
+#'
+#' @section Controlling binning parameters for the x and y directions:
+#' The arguments `bins` and `binwidth` can be set separately for the x and y directions.
+#' When given as a scalar, one value applies to both directions.
+#' When given as a vector of length two, the first is applied to the x direction
+#' and the second to the y direction.
+#' Alternatively, these can be a named list containing x and y elements,
+#' for example `list(x = 10, y = 20)`.
+#'
+#' @seealso [scale_size_tile()], [ggplot2::stat_summary_hex()], [ggplot2::stat_bin_hex()], [ggplot2::geom_hex()].
+#'
+#' @examples
+#' library(ggplot2)
+#'
+#' d <- ggplot(diamonds, aes(carat, depth, z = price))
+#'
+#' # fill: median price in bin
+#' # size: number of points in bin
+#' d +
+#'   geom_hextile(fun = "median") +
+#'   scale_size_tile(limits = c(0, 100))
+#'
+#' # fill: mean price in bin
+#' # size: sum of prices in bin
+#' d +
+#'   geom_hextile(aes(z2 = price, size = after_stat(value2)), fun2 = "sum") +
+#'   scale_size_tile(limits = c(0, 1e5))
+#'
+#' # fill: mean price in bin
+#' # size: density, scaled to maximum of 1, weighted by price
+#' d +
+#'   geom_hextile(aes(weight = price, size = after_stat(ndensity))) +
+#'   scale_size_tile(limits = c(0, 0.1))
+#'
+#' # fill: number of points in bin
+#' # size: number of points in bin
+#' ggplot(diamonds, aes(carat, depth)) +
+#'   geom_hextile() +
+#'   scale_size_tile(limits = c(0, 100))
+#'
 #' @export
 geom_hextile <- function(mapping = NULL, data = NULL, stat = "summary_hextile",
                          position = "identity", ..., na.rm = FALSE,
                          show.legend = NA, inherit.aes = TRUE) {
-  ggplot2::layer(data = data, mapping = mapping, stat = stat, geom = GeomHextile,
-        position = position, show.legend = show.legend, inherit.aes = inherit.aes,
-        params = rlang::list2(na.rm = na.rm, ...))
+  ggplot2::layer(
+    data = data, mapping = mapping, stat = stat, geom = GeomHextile,
+    position = position, show.legend = show.legend, inherit.aes = inherit.aes,
+    params = rlang::list2(na.rm = na.rm, ...)
+  )
 }
-
+#
+#' @rdname geom_hextile
 #' @export
-stat_summary_hextile <- function(mapping = NULL, data = NULL, geom = "hexagon",
+stat_summary_hextile <- function(mapping = NULL, data = NULL, geom = "hextile",
                                  position = "identity", ..., bins = 30,
                                  binwidth = NULL, drop = TRUE,
                                  fun = "mean", fun.args = list(),
@@ -22,7 +109,8 @@ stat_summary_hextile <- function(mapping = NULL, data = NULL, geom = "hexagon",
     geom = geom, position = position, show.legend = show.legend,
     inherit.aes = inherit.aes, params = rlang::list2(
       bins = bins, binwidth = binwidth, drop = drop, fun = fun,
-      fun.args = fun.args, na.rm = na.rm, ...
+      fun.args = fun.args, fun2 = fun2, fun2.args = fun2.args,
+      fun3 = fun3, fun3.args = fun3.args, na.rm = na.rm, ...
     )
   )
 }

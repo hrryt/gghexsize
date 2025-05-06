@@ -6,6 +6,7 @@ StatSummaryHextile <- ggplot2::ggproto(
     weight = 1
   ),
   required_aes = c("x", "y"),
+  optional_aes = c("z", "z2", "z3"),
   dropped_aes = c("z", "z2", "z3", "weight"),
   compute_group = function(data, scales, binwidth = NULL, bins = 30,
                            drop = TRUE, fun = "mean", fun.args = list(),

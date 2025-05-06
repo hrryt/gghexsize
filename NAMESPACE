@@ -3,8 +3,6 @@
 export(GeomHextile)
 export(draw_key_hextile)
 export(geom_hextile)
-export(scale_radius_more)
 export(scale_radius_tile)
-export(scale_size_more)
 export(scale_size_tile)
 export(stat_summary_hextile)

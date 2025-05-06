@@ -4,6 +4,7 @@
 \name{geom_hextile}
 \alias{geom_hextile}
 \alias{GeomHextile}
+\alias{stat_summary_hextile}
 \title{Geom Hextile}
 \usage{
 geom_hextile(
@@ -16,8 +17,217 @@ geom_hextile(
   show.legend = NA,
   inherit.aes = TRUE
 )
+
+stat_summary_hextile(
+  mapping = NULL,
+  data = NULL,
+  geom = "hextile",
+  position = "identity",
+  ...,
+  bins = 30,
+  binwidth = NULL,
+  drop = TRUE,
+  fun = "mean",
+  fun.args = list(),
+  fun2 = "mean",
+  fun2.args = list(),
+  fun3 = "mean",
+  fun3.args = list(),
+  na.rm = FALSE,
+  show.legend = NA,
+  inherit.aes = TRUE
+)
+}
+\arguments{
+\item{mapping}{Set of aesthetic mappings created by \code{\link[ggplot2:aes]{aes()}}. If specified and
+\code{inherit.aes = TRUE} (the default), it is combined with the default mapping
+at the top level of the plot. You must supply \code{mapping} if there is no plot
+mapping.}
+
+\item{data}{The data to be displayed in this layer. There are three
+options:
+
+If \code{NULL}, the default, the data is inherited from the plot
+data as specified in the call to \code{\link[ggplot2:ggplot]{ggplot()}}.
+
+A \code{data.frame}, or other object, will override the plot
+data. All objects will be fortified to produce a data frame. See
+\code{\link[ggplot2:fortify]{fortify()}} for which variables will be created.
+
+A \code{function} will be called with a single argument,
+the plot data. The return value must be a \code{data.frame}, and
+will be used as the layer data. A \code{function} can be created
+from a \code{formula} (e.g. \code{~ head(.x, 10)}).}
+
+\item{position}{A position adjustment to use on the data for this layer. This
+can be used in various ways, including to prevent overplotting and
+improving the display. The \code{position} argument accepts the following:
+\itemize{
+\item The result of calling a position function, such as \code{position_jitter()}.
+This method allows for passing extra arguments to the position.
+\item A string naming the position adjustment. To give the position as a
+string, strip the function name of the \code{position_} prefix. For example,
+to use \code{position_jitter()}, give the position as \code{"jitter"}.
+\item For more information and other ways to specify the position, see the
+\link[ggplot2:layer_positions]{layer position} documentation.
+}}
+
+\item{...}{Other arguments passed on to \code{\link[ggplot2:layer]{layer()}}'s \code{params} argument. These
+arguments broadly fall into one of 4 categories below. Notably, further
+arguments to the \code{position} argument, or aesthetics that are required
+can \emph{not} be passed through \code{...}. Unknown arguments that are not part
+of the 4 categories below are ignored.
+\itemize{
+\item Static aesthetics that are not mapped to a scale, but are at a fixed
+value and apply to the layer as a whole. For example, \code{colour = "red"}
+or \code{linewidth = 3}. The geom's documentation has an \strong{Aesthetics}
+section that lists the available options. The 'required' aesthetics
+cannot be passed on to the \code{params}. Please note that while passing
+unmapped aesthetics as vectors is technically possible, the order and
+required length is not guaranteed to be parallel to the input data.
+\item When constructing a layer using
+a \verb{stat_*()} function, the \code{...} argument can be used to pass on
+parameters to the \code{geom} part of the layer. An example of this is
+\code{stat_density(geom = "area", outline.type = "both")}. The geom's
+documentation lists which parameters it can accept.
+\item Inversely, when constructing a layer using a
+\verb{geom_*()} function, the \code{...} argument can be used to pass on parameters
+to the \code{stat} part of the layer. An example of this is
+\code{geom_area(stat = "density", adjust = 0.5)}. The stat's documentation
+lists which parameters it can accept.
+\item The \code{key_glyph} argument of \code{\link[ggplot2:layer]{layer()}} may also be passed on through
+\code{...}. This can be one of the functions described as
+\link[ggplot2:draw_key]{key glyphs}, to change the display of the layer in the legend.
+}}
+
+\item{na.rm}{If \code{FALSE}, the default, missing values are removed with
+a warning. If \code{TRUE}, missing values are silently removed.}
+
+\item{show.legend}{logical. Should this layer be included in the legends?
+\code{NA}, the default, includes if any aesthetics are mapped.
+\code{FALSE} never includes, and \code{TRUE} always includes.
+It can also be a named logical vector to finely select the aesthetics to
+display. To include legend keys for all levels, even
+when no data exists, use \code{TRUE}.  If \code{NA}, all levels are shown in legend,
+but unobserved levels are omitted.}
+
+\item{inherit.aes}{If \code{FALSE}, overrides the default aesthetics,
+rather than combining with them. This is most useful for helper functions
+that define both data and aesthetics and shouldn't inherit behaviour from
+the default plot specification, e.g. \code{\link[ggplot2:borders]{borders()}}.}
+
+\item{geom, stat}{geom,stat Override the default connection between \code{geom_hextile()} and
+\code{stat_summary_hextile()}. For more information about overriding these connections,
+see how the \link[ggplot2:layer_stats]{stat} and \link[ggplot2:layer_geoms]{geom} arguments work.}
+
+\item{bins}{Number of bins. Overridden by \code{binwidth}. Defaults to 30.}
+
+\item{binwidth}{The width of the bins. Can be specified as a numeric value
+or as a function that takes x after scale transformation as input and
+returns a single numeric value. When specifying a function along with a
+grouping structure, the function will be called once per group.
+The default is to use the number of bins in \code{bins},
+covering the range of the data. You should always override
+this value, exploring multiple widths to find the best to illustrate the
+stories in your data.
+
+The bin width of a date variable is the number of days in each time; the
+bin width of a time variable is the number of seconds.}
+
+\item{drop}{drop if the output of \code{fun} is \code{NA}.}
+
+\item{fun, fun2, fun3}{function for summary.}
+
+\item{fun.args, fun2.args, fun3.args}{A list of extra arguments to pass to \code{fun}}
 }
 \description{
 Geom Hextile
+}
+\section{Aesthetics}{
+
+\code{geom_hextile()} understands the following aesthetics. Required aesthetics are displayed in bold and defaults are displayed for optional aesthetics:
+\tabular{rll}{
+• \tab \strong{\code{\link[ggplot2:aes_position]{x}}} \tab   \cr\cr
+• \tab \strong{\code{\link[ggplot2:aes_position]{y}}} \tab   \cr\cr
+• \tab \code{\link[ggplot2:aes_colour_fill_alpha]{alpha}} \tab → \code{NA} \cr\cr
+• \tab \code{\link[ggplot2:aes_colour_fill_alpha]{colour}} \tab → via \code{theme()} \cr\cr
+• \tab \code{\link[ggplot2:aes_colour_fill_alpha]{fill}} \tab → via \code{theme()} \cr\cr
+• \tab \code{\link[ggplot2:aes_group_order]{group}} \tab → inferred \cr\cr
+• \tab \code{\link[ggplot2:aes_linetype_size_shape]{linetype}} \tab → via \code{theme()} \cr\cr
+• \tab \code{\link[ggplot2:aes_linetype_size_shape]{linewidth}} \tab → via \code{theme()} \cr\cr
+• \tab \code{\link[ggplot2:aes_linetype_size_shape]{size}} \tab → \code{1} \cr\cr
+}
+Learn more about setting these aesthetics in \code{vignette("ggplot2-specs")}.
+
+\code{stat_summary_hextile()} understands the following aesthetics. Required aesthetics are displayed in bold and defaults are displayed for optional aesthetics:
+\tabular{rll}{
+• \tab \strong{\code{\link[ggplot2:aes_position]{x}}} \tab   \cr\cr
+• \tab \strong{\code{\link[ggplot2:aes_position]{y}}} \tab   \cr\cr
+• \tab \code{z}, \code{z2}, \code{z3}: \tab value passed to each summary function   \cr\cr
+• \tab \code{\link[ggplot2:aes_colour_fill_alpha]{fill}} \tab → \code{after_stat(value)} \cr\cr
+• \tab \code{\link[ggplot2:aes_group_order]{group}} \tab → inferred \cr\cr
+• \tab \code{\link[ggplot2:aes_linetype_size_shape]{size}} \tab → \code{after_stat(count)} \cr\cr
+• \tab \code{weight} \tab → \code{1} \cr\cr
+}
+Learn more about setting these aesthetics in \code{vignette("ggplot2-specs")}.
+}
+
+\section{Computed variables}{
+
+These are calculated by the 'stat' part of layers and can be accessed with \link[ggplot2:aes_eval]{delayed evaluation}.
+\itemize{
+\item \code{after_stat(x)}, \code{after_stat(y)}\cr location.
+\item \code{after_stat(count)}\cr number of points in bin.
+\item \code{after_stat(density)}\cr density of points in bin, scaled to integrate to 1.
+\item \code{after_stat(ncount)}\cr count, scaled to maximum of 1.
+\item \code{after_stat(ndensity)}\cr density, scaled to maximum of 1.
+\item \code{after_stat(value)}\cr number of points in bin, or if \code{z} is supplied, value of summary statistic from \code{z}.
+\item \code{after_stat(value2)}\cr if \code{z2} is supplied, value of summary statistic from \code{z2}.
+\item \code{after_stat(value3)}\cr if \code{z3} is supplied, value of summary statistic from \code{z3}.
+}
+}
+
+\section{Controlling binning parameters for the x and y directions}{
+
+The arguments \code{bins} and \code{binwidth} can be set separately for the x and y directions.
+When given as a scalar, one value applies to both directions.
+When given as a vector of length two, the first is applied to the x direction
+and the second to the y direction.
+Alternatively, these can be a named list containing x and y elements,
+for example \code{list(x = 10, y = 20)}.
+}
+
+\examples{
+library(ggplot2)
+
+d <- ggplot(diamonds, aes(carat, depth, z = price))
+
+# fill: median price in bin
+# size: number of points in bin
+d +
+  geom_hextile(fun = "median") +
+  scale_size_tile(limits = c(0, 100))
+
+# fill: mean price in bin
+# size: sum of prices in bin
+d +
+  geom_hextile(aes(z2 = price, size = after_stat(value2)), fun2 = "sum") +
+  scale_size_tile(limits = c(0, 1e5))
+
+# fill: mean price in bin
+# size: density, scaled to maximum of 1, weighted by price
+d +
+  geom_hextile(aes(weight = price, size = after_stat(ndensity))) +
+  scale_size_tile(limits = c(0, 0.1))
+
+# fill: number of points in bin
+# size: number of points in bin
+ggplot(diamonds, aes(carat, depth)) +
+  geom_hextile() +
+  scale_size_tile(limits = c(0, 100))
+
+}
+\seealso{
+\code{\link[=scale_size_tile]{scale_size_tile()}}, \code{\link[ggplot2:stat_summary_2d]{ggplot2::stat_summary_hex()}}, \code{\link[ggplot2:geom_hex]{ggplot2::stat_bin_hex()}}, \code{\link[ggplot2:geom_hex]{ggplot2::geom_hex()}}.
 }
 \keyword{datasets}
