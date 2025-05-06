@@ -6,7 +6,9 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of gghexsize is to …
+The goal of gghexsize is mainly to provide users with the ability to
+vary the size of each hexagon in hexagonal heatmaps created with
+ggplot2.
 
 ## Installation
 
