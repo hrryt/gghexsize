@@ -24,12 +24,11 @@
 #'
 #' @export
 draw_key_hextile <- function(data, params, size) {
-  sz <- data$size %||% 1
-  one <- grid::unit(0.8, "npc")
+  one <- grid::unit(sqrt(3) / 2, "npc")
   fill <- ggplot2::fill_alpha(data$fill %||% "grey20", data$alpha)
   alpha <- farver::decode_colour(fill, alpha = TRUE)[, "alpha"]
   fill0 <- ggplot2::fill_alpha(fill, 0.3 * alpha)
-  width <- one * sz # - grid::unit(lwd, "mm")
+  width <- one * (data$size %||% 1) # - grid::unit(lwd, "mm")
   widths <- rep(grid::unit.c(one, width), each = 6)
   hexC <- hexbin::hexcoords(0.5)
   hexC$x <- hexC$x * widths + grid::unit(0.5, "npc")
