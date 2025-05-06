@@ -1,9 +1,10 @@
 Package: gghexsize
-Title: What the Package Does (One Line, Title Case)
+Title: Make Hexagonal Heatmaps with Varying Size
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+    person("Harry", "Thompson", , "harry@mayesfield.uk", role = c("cre", "aut"))
+Description: Create hexagonal heatmaps with 'ggplot2',
+    using the 'size' aesthetic to variably size each hexagon.
 License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
