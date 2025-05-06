@@ -17,7 +17,7 @@
 #' d + geom_hex(colour = "black")
 #'
 #' # key glyphs can be specified by their name
-#' d + geom_hex(colour = "black", key_glyph = "hexagon")
+#' d + geom_hex(colour = "black", key_glyph = "hextile")
 #'
 #' # key glyphs can be specified via their drawing function
 #' d + geom_hex(colour = "black", key_glyph = draw_key_hextile)
