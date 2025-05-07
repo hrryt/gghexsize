@@ -73,6 +73,9 @@ GeomHextile <- ggplot2::ggproto(
     if (empty(data)) {
       return(ggplot2::zeroGrob())
     }
+    if(any(data$size > 1, na.rm = TRUE)) cli::cli_warn(
+      "{.var size} aesthetic exceeds 1. Consider using {.fun scale_size_tile}."
+    )
     if (!is.null(data$width)) {
       dx <- data$width[1]/2
     }
