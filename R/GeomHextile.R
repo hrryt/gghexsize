@@ -39,7 +39,7 @@ draw_key_hextile <- function(data, params, size) {
       col = c(NA, data$colour %||% NA),
       fill = c(fill0, fill),
       lty = c(1, data$linetype %||% 1),
-      lwd = c(NA, data$linewidth %||% 0) * .pt,
+      lwd = c(NA, data$linewidth %||% 0) * ggplot2::.pt,
       linejoin = params$linejoin %||% "mitre",
       lineend = params$lineend %||% "butt"
     ), id.lengths = c(6, 6), vp = grid::vpTree(
@@ -97,7 +97,7 @@ GeomHextile <- ggplot2::ggproto(
     coords <- coord$transform(hexdata, panel_params)
     ggname("geom_hextile", grid::polygonGrob(coords$x, coords$y, gp = grid::gpar(
       col = data$colour, fill = ggplot2::fill_alpha(data$fill, data$alpha),
-      lwd = data$linewidth * .pt, lty = data$linetype,
+      lwd = data$linewidth * ggplot2::.pt, lty = data$linetype,
       lineend = lineend, linejoin = linejoin, linemitre = linemitre
     ), default.units = "native", id.lengths = rep.int(6, n)))
   }

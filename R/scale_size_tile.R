@@ -33,10 +33,9 @@
 #'
 #' @export
 scale_size_tile <- function(
-    name = ggplot2::waiver(), ..., max_size = 1,
-    aesthetics = "size", oob = scales::squish) {
+    name = ggplot2::waiver(), ..., max_size = 1, oob = scales::squish) {
   ggplot2::continuous_scale(
-    aesthetics, name = name, palette = scales::abs_area(max_size),
+    "size", name = name, palette = scales::abs_area(max_size),
     rescaler = scales::rescale_max, oob = oob, ...
   )
 }
@@ -44,10 +43,9 @@ scale_size_tile <- function(
 #' @rdname scale_size_tile
 #' @export
 scale_size_binned_tile <- function(
-    name = ggplot2::waiver(), ..., max_size = 1,
-    aesthetics = "size", oob = scales::squish) {
+    name = ggplot2::waiver(), ..., max_size = 1, oob = scales::squish) {
   ggplot2::binned_scale(
-    aesthetics, name = name, palette = scales::abs_area(max_size),
+    "size", name = name, palette = scales::abs_area(max_size),
     rescaler = scales::rescale_max, oob = oob, ...
   )
 }

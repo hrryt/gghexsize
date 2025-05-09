@@ -9,7 +9,6 @@ scale_size_tile(
   name = ggplot2::waiver(),
   ...,
   max_size = 1,
-  aesthetics = "size",
   oob = scales::squish
 )
 
@@ -17,7 +16,6 @@ scale_size_binned_tile(
   name = ggplot2::waiver(),
   ...,
   max_size = 1,
-  aesthetics = "size",
   oob = scales::squish
 )
 }
@@ -31,8 +29,6 @@ omitted.}
 \code{\link[ggplot2:binned_scale]{ggplot2::binned_scale()}}.}
 
 \item{max_size}{Size of largest points.}
-
-\item{aesthetics}{The names of the aesthetics that this scale works with.}
 
 \item{oob}{One of:
 \itemize{
