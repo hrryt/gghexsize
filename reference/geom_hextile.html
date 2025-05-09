@@ -262,40 +262,28 @@ for example <code>list(x = 10, y = 20)</code>.</p>
 <span class="r-in"><span><span class="va">d</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu">geom_hextile</span><span class="op">(</span>fun <span class="op">=</span> <span class="st">"median"</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="scale_size_tile.html">scale_size_tile</a></span><span class="op">(</span>limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">100</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Failed to apply `after_scale()` modifications to legend</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> Caused by error in `from_theme()`:</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> could not find function "from_theme"</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in from_theme(colour %||% NA):</span> could not find function "from_theme"</span>
+<span class="r-plt img"><img src="geom_hextile-1.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># fill: mean price in bin</span></span></span>
 <span class="r-in"><span><span class="co"># size: sum of prices in bin</span></span></span>
 <span class="r-in"><span><span class="va">d</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu">geom_hextile</span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>z2 <span class="op">=</span> <span class="va">price</span>, size <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html" class="external-link">after_stat</a></span><span class="op">(</span><span class="va">value2</span><span class="op">)</span><span class="op">)</span>, fun2 <span class="op">=</span> <span class="st">"sum"</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="scale_size_tile.html">scale_size_tile</a></span><span class="op">(</span>limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1e5</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Failed to apply `after_scale()` modifications to legend</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> Caused by error in `from_theme()`:</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> could not find function "from_theme"</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in from_theme(colour %||% NA):</span> could not find function "from_theme"</span>
+<span class="r-plt img"><img src="geom_hextile-2.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># fill: mean price in bin</span></span></span>
 <span class="r-in"><span><span class="co"># size: density, scaled to maximum of 1, weighted by price</span></span></span>
 <span class="r-in"><span><span class="va">d</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu">geom_hextile</span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>weight <span class="op">=</span> <span class="va">price</span>, size <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html" class="external-link">after_stat</a></span><span class="op">(</span><span class="va">ndensity</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="scale_size_tile.html">scale_size_tile</a></span><span class="op">(</span>limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Failed to apply `after_scale()` modifications to legend</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> Caused by error in `from_theme()`:</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> could not find function "from_theme"</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in from_theme(colour %||% NA):</span> could not find function "from_theme"</span>
+<span class="r-plt img"><img src="geom_hextile-3.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># fill: number of points in bin</span></span></span>
 <span class="r-in"><span><span class="co"># size: number of points in bin</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">carat</span>, <span class="va">depth</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu">geom_hextile</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="scale_size_tile.html">scale_size_tile</a></span><span class="op">(</span>limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">100</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Failed to apply `after_scale()` modifications to legend</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> Caused by error in `from_theme()`:</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> could not find function "from_theme"</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in from_theme(colour %||% NA):</span> could not find function "from_theme"</span>
+<span class="r-plt img"><img src="geom_hextile-4.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
