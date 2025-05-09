@@ -12,7 +12,7 @@ RoxygenNote: 7.3.2
 Imports: 
     cli,
     farver,
-    ggplot2 (>= 3.5.2),
+    ggplot2 (>= 3.5.2.9000),
     grid,
     hexbin,
     rlang,
