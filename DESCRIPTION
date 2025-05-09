@@ -18,5 +18,5 @@ Imports:
     rlang,
     scales,
     vctrs
-URL: https://github.com/hrryt/gghexsize
+URL: https://github.com/hrryt/gghexsize, https://hrryt.github.io/gghexsize/
 BugReports: https://github.com/hrryt/gghexsize/issues
