@@ -4,8 +4,10 @@ ggname <- function(prefix, grob) {
 }
 
 empty <- function(df) {
-  is.null(df) || nrow(df) == 0 || ncol(df) == 0 || ggplot2::is.waiver(df)
+  is.null(df) || nrow(df) == 0 || ncol(df) == 0 || is.waive(df)
 }
+
+is.waive <- function(x) inherits(x, "waiver")
 
 hex_binwidth <- function(bins = 30, scales) {
   c(diff(scales$x$dimension())/bins, diff(scales$y$dimension())/bins)

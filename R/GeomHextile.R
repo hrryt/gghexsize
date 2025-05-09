@@ -35,11 +35,11 @@ draw_key_hextile <- function(data, params, size) {
   hexC$y <- hexC$y * widths + grid::unit(0.5, "npc")
   grob <- grid::polygonGrob(
     hexC$x, hexC$y,
-    gp = ggplot2::gg_par(
+    gp = grid::gpar(
       col = c(NA, data$colour %||% NA),
       fill = c(fill0, fill),
-      lty = c(NA, data$linetype %||% 1),
-      lwd = c(NA, data$linewidth %||% 0),
+      lty = c(1, data$linetype %||% 1),
+      lwd = c(NA, data$linewidth %||% 0) * .pt,
       linejoin = params$linejoin %||% "mitre",
       lineend = params$lineend %||% "butt"
     ), id.lengths = c(6, 6), vp = grid::vpTree(
@@ -59,10 +59,10 @@ draw_key_hextile <- function(data, params, size) {
 GeomHextile <- ggplot2::ggproto(
   "GeomHextile", ggplot2::GeomHex,
   default_aes = ggplot2::aes(
-    colour = from_theme(colour %||% NA),
-    fill = from_theme(fill %||% scales::col_mix(ink, paper)),
-    linewidth = from_theme(borderwidth),
-    linetype = from_theme(bordertype),
+    colour = NA,
+    fill = "grey50",
+    linewidth = 0.5,
+    linetype = 1,
     alpha = NA,
     size = 1
   ),
@@ -95,9 +95,9 @@ GeomHextile <- ggplot2::ggproto(
     hexdata$y <- rep.int(hexC$y, n) * hexdata$size + hexdata$y
     hexdata$size <- NULL
     coords <- coord$transform(hexdata, panel_params)
-    ggname("geom_hextile", grid::polygonGrob(coords$x, coords$y, gp = ggplot2::gg_par(
+    ggname("geom_hextile", grid::polygonGrob(coords$x, coords$y, gp = grid::gpar(
       col = data$colour, fill = ggplot2::fill_alpha(data$fill, data$alpha),
-      lwd = data$linewidth, lty = data$linetype,
+      lwd = data$linewidth * .pt, lty = data$linetype,
       lineend = lineend, linejoin = linejoin, linemitre = linemitre
     ), default.units = "native", id.lengths = rep.int(6, n)))
   }
