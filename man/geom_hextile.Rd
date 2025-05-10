@@ -130,6 +130,9 @@ horizontal directions. Overrides \code{bins} if both set.}
 
 \item{fun.args, fun2.args, fun3.args}{A list of extra arguments to pass to \code{fun}}
 }
+\value{
+A \code{\link[ggplot2:layer]{ggplot2::layer()}}.
+}
 \description{
 Divides the plane into regular hexagons,
 counts the number of cases in each hexagon, and then (by default)

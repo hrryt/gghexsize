@@ -16,6 +16,7 @@
 #' @param fun,fun2,fun3 function for summary.
 #' @param fun.args,fun2.args,fun3.args A list of extra arguments to pass to `fun`
 #' @inheritParams ggplot2::stat_summary_hex
+#' @returns A [ggplot2::layer()].
 #' @section Aesthetics:
 #' \code{geom_hextile()} understands the following aesthetics. Required aesthetics are displayed in bold and defaults are displayed for optional aesthetics:
 #'   \tabular{rll}{

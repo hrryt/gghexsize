@@ -21,6 +21,7 @@
 #'   - The default ([scales::squish()]) squishes out of bounds values into range.
 #'   - [scales::censor()] for replacing out of bounds values with `NA`.
 #'   - [scales::squish_infinite()] for squishing infinite values into range.
+#' @returns A [`ggplot2::Scale`].
 #'
 #' @examples
 #' library(ggplot2)

@@ -40,6 +40,9 @@ function notation.
 \item \code{\link[scales:oob]{scales::squish_infinite()}} for squishing infinite values into range.
 }}
 }
+\value{
+A \code{\link[ggplot2:ggplot2-ggproto]{ggplot2::Scale}}.
+}
 \description{
 Replacements for \code{\link[ggplot2:scale_size]{ggplot2::scale_size_area()}} and
 \code{\link[ggplot2:scale_size]{ggplot2::scale_size_binned_area()}} with convenient defaults for
