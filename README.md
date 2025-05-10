@@ -12,6 +12,12 @@ ggplot2.
 
 ## Installation
 
+You can install gghexsize using the following command:
+
+``` r
+install.packages("gghexsize")
+```
+
 You can install the development version of gghexsize from
 [GitHub](https://github.com/) with:
 
