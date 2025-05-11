@@ -1,9 +1,9 @@
 #' Hexagon key glyph for legends
 #'
 #' Each geom has an associated function that draws the key when the geom needs
-#' to be displayed in a legend. These functions are called `⁠draw_key_*()`⁠, where `*`
+#' to be displayed in a legend. These functions are called `draw_key_*()`, where `*`
 #' stands for the name of the respective key glyph. The key glyphs can be
-#' customized for individual geoms by providing a geom with the key_glyph
+#' customized for individual geoms by providing a geom with the `key_glyph`
 #' argument (see [ggplot2::layer()] or examples below.)
 #'
 #' @inheritParams ggplot2::draw_key

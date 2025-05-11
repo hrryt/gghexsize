@@ -19,9 +19,9 @@ A grid grob.
 }
 \description{
 Each geom has an associated function that draws the key when the geom needs
-to be displayed in a legend. These functions are called \verb{⁠draw_key_*()}⁠, where \code{*}
+to be displayed in a legend. These functions are called \verb{draw_key_*()}, where \code{*}
 stands for the name of the respective key glyph. The key glyphs can be
-customized for individual geoms by providing a geom with the key_glyph
+customized for individual geoms by providing a geom with the \code{key_glyph}
 argument (see \code{\link[ggplot2:layer]{ggplot2::layer()}} or examples below.)
 }
 \examples{

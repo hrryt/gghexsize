@@ -131,7 +131,7 @@ horizontal directions. Overrides \code{bins} if both set.}
 \item{fun.args, fun2.args, fun3.args}{A list of extra arguments to pass to \code{fun}}
 }
 \value{
-A \code{\link[ggplot2:layer]{ggplot2::layer()}}.
+A ggplot2::layer()]
 }
 \description{
 Divides the plane into regular hexagons,
@@ -145,30 +145,30 @@ the very regular alignment of \code{\link[ggplot2:geom_bin_2d]{ggplot2::geom_bin
 }
 \section{Aesthetics}{
 
-\code{geom_hextile()} understands the following aesthetics. Required aesthetics are displayed in bold and defaults are displayed for optional aesthetics:
-\tabular{rll}{
-• \tab \strong{\code{\link[ggplot2:aes_position]{x}}} \tab   \cr\cr
-• \tab \strong{\code{\link[ggplot2:aes_position]{y}}} \tab   \cr\cr
-• \tab \code{\link[ggplot2:aes_colour_fill_alpha]{alpha}} \tab → \code{NA} \cr\cr
-• \tab \code{\link[ggplot2:aes_colour_fill_alpha]{colour}} \tab → via \code{theme()} \cr\cr
-• \tab \code{\link[ggplot2:aes_colour_fill_alpha]{fill}} \tab → via \code{theme()} \cr\cr
-• \tab \code{\link[ggplot2:aes_group_order]{group}} \tab → inferred \cr\cr
-• \tab \code{\link[ggplot2:aes_linetype_size_shape]{linetype}} \tab → via \code{theme()} \cr\cr
-• \tab \code{\link[ggplot2:aes_linetype_size_shape]{linewidth}} \tab → via \code{theme()} \cr\cr
-• \tab \code{\link[ggplot2:aes_linetype_size_shape]{size}} \tab → \code{1} \cr\cr
+\code{geom_hextile()} understands the following aesthetics.
+Required aesthetics are displayed in bold and defaults are displayed for optional aesthetics:
+\itemize{
+\item \strong{\code{\link[ggplot2:aes_position]{x}}}
+\item \strong{\code{\link[ggplot2:aes_position]{y}}}
+\item \code{\link[ggplot2:aes_colour_fill_alpha]{alpha}}
+\item \code{\link[ggplot2:aes_colour_fill_alpha]{colour}}
+\item \code{\link[ggplot2:aes_colour_fill_alpha]{fill}}
+\item \code{\link[ggplot2:aes_group_order]{group}}
+\item \code{\link[ggplot2:aes_linetype_size_shape]{linetype}}
+\item \code{\link[ggplot2:aes_linetype_size_shape]{linetype}}
+\item \code{\link[ggplot2:aes_linetype_size_shape]{size}}
 }
+
 Learn more about setting these aesthetics in \code{vignette("ggplot2-specs")}.
 
-\code{stat_summary_hextile()} understands the following aesthetics. Required aesthetics are displayed in bold and defaults are displayed for optional aesthetics:
-\tabular{rll}{
-• \tab \strong{\code{\link[ggplot2:aes_position]{x}}} \tab   \cr\cr
-• \tab \strong{\code{\link[ggplot2:aes_position]{y}}} \tab   \cr\cr
-• \tab \code{z}, \code{z2}, \code{z3}: \tab value passed to each summary function   \cr\cr
-• \tab \code{\link[ggplot2:aes_colour_fill_alpha]{fill}} \tab → \code{after_stat(value)} \cr\cr
-• \tab \code{\link[ggplot2:aes_group_order]{group}} \tab → inferred \cr\cr
-• \tab \code{\link[ggplot2:aes_linetype_size_shape]{size}} \tab → \code{after_stat(count)} \cr\cr
-• \tab \code{weight} \tab → \code{1} \cr\cr
+\code{stat_summary_hextile()} understands the following aesthetics.
+Required aesthetics are displayed in bold and defaults are displayed for optional aesthetics:
+\itemize{
+\item \strong{\code{\link[ggplot2:aes_position]{x}}}: horizontal position
+\item \strong{\code{\link[ggplot2:aes_position]{y}}}: vertical position
+\item \code{z}, \code{z2}, \code{z3}: value passed to each summary function
 }
+
 Learn more about setting these aesthetics in \code{vignette("ggplot2-specs")}.
 }
 
