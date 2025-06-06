@@ -26,7 +26,7 @@
 draw_key_hextile <- function(data, params, size) {
   one <- grid::unit(sqrt(3) / 2, "npc")
   fill <- ggplot2::fill_alpha(data$fill %||% "grey20", data$alpha)
-  alpha <- farver::decode_colour(fill, alpha = TRUE)[, "alpha"]
+  alpha <- fill_get_alpha(fill)
   fill0 <- ggplot2::fill_alpha(fill, 0.3 * alpha)
   width <- one * (data$size %||% 1) # - grid::unit(lwd, "mm")
   widths <- rep(grid::unit.c(one, width), each = 6)
