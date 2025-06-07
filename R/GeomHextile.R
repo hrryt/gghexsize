@@ -28,7 +28,7 @@ draw_key_hextile <- function(data, params, size) {
   fill <- ggplot2::fill_alpha(data$fill %||% "grey20", data$alpha)
   alpha <- fill_get_alpha(fill)
   fill0 <- ggplot2::fill_alpha(fill, 0.3 * alpha)
-  width <- one * (data$size %||% 1) # - grid::unit(lwd, "mm")
+  width <- one * (data$size %||% 1)
   widths <- rep(grid::unit.c(one, width), each = 6)
   hexC <- hexbin::hexcoords(0.5)
   hexC$x <- hexC$x * widths + grid::unit(0.5, "npc")
