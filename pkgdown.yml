@@ -1,8 +1,8 @@
 pandoc: 3.1.11
-pkgdown: 2.1.2
+pkgdown: 2.1.3
 pkgdown_sha: ~
 articles: {}
-last_built: 2025-05-13T13:37Z
+last_built: 2025-06-07T00:26Z
 urls:
   reference: https://hrryt.github.io/gghexsize/reference
   article: https://hrryt.github.io/gghexsize/articles
